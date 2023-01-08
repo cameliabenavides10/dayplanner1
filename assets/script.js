@@ -35,13 +35,12 @@ setInterval(intervalHeaderTime, 1000);
 
 // The following will be in order to change the colors on the planner depending on time of day.
 // var intervalCurrentHour = function() {
-// var currentHour = dayjs();
+//              var currentHour = dayjs();
 // i dont want to append it anywhere but im not sure how to write it yet
-//  $('#currentDay').text(currentHour.format('h A'));
+//              $('#currentDay').text(currentHour.format('h A'));
 // };
 // setInterval(intervalCurrentHour, 1000);
-// console.log(intervalCurrentHour);
-// var timeGroups = ["9 AM", "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM","5 PM"]
+
 // var hourBox = document.querySelector(".time-block");
 // do another for loop and see if you can select the ids and append them to a blank variable that will equal timegroups
 
@@ -58,18 +57,13 @@ var five= $("#hour-17").text();
 
 var theHours = [nine, ten, eleven, twelve, one, two, three, four, five];
 
-console.log(theHours[0]);
+console.log(theHours[4]);
 
 
-
-// for looping the objects in 
-
-
-// wait can you make a for loop with an object??
 //  for (let i=0; i < theHours.length; i++){
-// if (currentHour === timeGroups){
+// if (intervalCurrentHour === theHours[i]){
 //     // set to present color using the style thing? 
-// } else if(currentHour > timeGroups){
+// } else if(intervalCurrentHour > theHours){
 //     // set to past color 
 // } else { 
 //     // set to future color
