@@ -24,10 +24,25 @@ $(function () {
 
 
 // function appending date and time to page using days.js
-function intervalHeaderTime() {
+var intervalHeaderTime = function() {
     var todayHeader = dayjs();
     $('#currentDay').text(todayHeader.format('MMM D, YYYY h:mm:ss a'));
 };
 // interval set to read function in order to update seconds
 setInterval(intervalHeaderTime, 1000);
 
+
+
+// The following will be in order to change the colors on the planner depending on time of day.
+// var currentHour = dayjs();
+//     $('#currentDay').text(currentHour.format('H'));
+var timeGroups = ["9", "10", "11", "12", "13", "14", "15", "16","17"]
+ for (let i=0; i < timeGroups.length; i++){
+if (currentHour === timeGroups){
+    // set to present color
+} else if(currentHour > timeGroups){
+    // set to past color
+} else { 
+    // set to future color
+}
+ }
