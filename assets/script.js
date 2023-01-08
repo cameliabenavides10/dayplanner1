@@ -21,4 +21,9 @@ $(function () {
     //
     // TODO: Add code to display the current date in the header of the page.
   });
+
   
+
+  var todayHeader = dayjs();
+  let myVar = setInterval(todayHeader, 1000);
+$('#currentDay').text(todayHeader.format('MMM D, YYYY'));
