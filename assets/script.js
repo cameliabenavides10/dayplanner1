@@ -23,26 +23,27 @@ $(function () {
 });
 
 
-// function appending date and time to page using days.js
+// // function appending date and time to page using days.js
 var intervalHeaderTime = function() {
     var todayHeader = dayjs();
-    $('#currentDay').text(todayHeader.format('MMM D, YYYY h:mm:ss a'));
-};
-// interval set to read function in order to update seconds
+   $('#currentDay').text(todayHeader.format('MMM D, YYYY h:mm:ss a'));
+ };
+ // interval set to read function in order to update seconds
 setInterval(intervalHeaderTime, 1000);
 
+;
 
+// // The following will be in order to change the colors on the planner depending on time of day.
 
-// The following will be in order to change the colors on the planner depending on time of day.
-// var intervalCurrentHour = function() {
-//              var currentHour = dayjs();
+var intervalCurrentHour = function() {
+           var currentHour = dayjs();
 // i dont want to append it anywhere but im not sure how to write it yet
-//              $('#currentDay').text(currentHour.format('h A'));
-// };
-// setInterval(intervalCurrentHour, 1000);
+   currentHour.format('h A');
 
-// var hourBox = document.querySelector(".time-block");
-// do another for loop and see if you can select the ids and append them to a blank variable that will equal timegroups
+
+// setInterval(intervalCurrentHour, 1000);
+ 
+// // do another for loop and see if you can select the ids and append them to a blank variable that will equal timegroups
 
 var nine = $("#hour-9").text();
 var ten = $("#hour-10").text();
@@ -55,17 +56,57 @@ var four=$("#hour-16").text();
 var five= $("#hour-17").text();
 
 
+
+
 var theHours = [nine, ten, eleven, twelve, one, two, three, four, five];
 
-console.log(theHours[4]);
+
+console.log(currentHour.format('h A') === "7 PM");
 
 
-//  for (let i=0; i < theHours.length; i++){
-// if (intervalCurrentHour === theHours[i]){
-//     // set to present color using the style thing? 
-// } else if(intervalCurrentHour > theHours){
-//     // set to past color 
-// } else { 
-//     // set to future color
-// }
-//  }
+ for (let i=0; i < theHours.length; i++){
+ if (currentHour.format('h A') === theHours[i]){
+   $("textarea").css("background-color", "#ff6961");
+ } else if(currentHour.format('h A') < theHours[i]){
+  $("textarea").css("background-color", "#77dd77");
+} else { 
+        $("textarea").css("background-color", "#d3d3d3");
+ }
+ }
+
+};
+
+setInterval(intervalCurrentHour, 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(".saveBtn").on("click", function (){
+var textPlanner = $(this).siblings("textarea").val();
+var timePlanner = $(this).parent().attr("id");
+localStorage.setItem(timePlanner, textPlanner);
+}) 
+
+$("#hour-9").children("textarea").val(localStorage.getItem("hour-9"));
+$("#hour-10").children("textarea").val(localStorage.getItem("hour-10"));
+$("#hour-11").children("textarea").val(localStorage.getItem("hour-11"));
+$("#hour-12").children("textarea").val(localStorage.getItem("hour-12"));
+$("#hour-13").children("textarea").val(localStorage.getItem("hour-13"));
+$("#hour-14").children("textarea").val(localStorage.getItem("hour-14"));
+$("#hour-15").children("textarea").val(localStorage.getItem("hour-15"));
+$("#hour-16").children("textarea").val(localStorage.getItem("hour-16"));
+$("#hour-17").children("textarea").val(localStorage.getItem("hour-17"));
