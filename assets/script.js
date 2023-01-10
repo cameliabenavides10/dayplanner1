@@ -14,13 +14,6 @@ setInterval(intervalHeaderTime, 1000);
 // // The following will be in order to change the colors on the planner depending on time of day.
 
 
-
-
-
-
-
-
-
 var intervalCurrentHour = function () {
     var currentHour = dayjs().hour();
     // i dont want to append it anywhere but im not sure how to write it yet
@@ -34,10 +27,10 @@ var intervalCurrentHour = function () {
 
 
 
-
+// these if statements will read the currrent hour given by dayjs and the time-block class to coorespond with each other. 
      $(".time-block").each(function () {
         var hourBlock = parseInt($(this).attr("id").split("-")[1]);
-        console.log(hourBlock);
+        
         if (hourBlock < currentHour) {
             $(this).addClass("past")
         }
@@ -53,7 +46,7 @@ var intervalCurrentHour = function () {
 
 
 };
-
+// setting interval timer to run function every second in order to keep current time correct
 setInterval(intervalCurrentHour, 1000);
 
 
