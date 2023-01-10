@@ -26,40 +26,12 @@ var intervalCurrentHour = function () {
     // i dont want to append it anywhere but im not sure how to write it yet
     console.log(currentHour);
 
-    // setInterval(intervalCurrentHour, 1000);
-
-    // // do another for loop and see if you can select the ids and append them to a blank variable that will equal timegroups
     
-    // var nine = $("#9AM").text();
-    // var ten = $("#10AM").text();
-    // var eleven = $("#11AM").text();
-    // var twelve = $("#12PM").text();
-    // var one = $("#1PM").text();
-    // var two = $("#2PM").text();
-    // var three = $("#3PM").text();
-    // var four = $("#4PM").text();
-    // var five = $("#5PM").text();
-    // var eight = $("#8PM").text();
-
-   
-    // var theHours = [nine, ten, eleven, twelve, one, two, three, four, five, eight];
-
-
-    //   for (let i = 0; i < theHours.length; i++) {
 
 
 
 
 
-    //     if (currentHour.format('h A') === theHours[i]) {
-    //         $("textarea").css("background-color", "pink");
-
-    //     } else if (currentHour.format('h A') > theHours[i]-1) {
-    //         $("textarea").css("background-color", "grey");
-    //     } else {
-    //         $("textarea").css("background-color", "purple");
-    //     }
-    //  }
 
 
 
@@ -70,10 +42,10 @@ var intervalCurrentHour = function () {
             $(this).addClass("past")
         }
         if (hourBlock > currentHour) {
-            $(this).attr("style", "background: yellow;")
+            $(this).addClass("future");
         }
         if (hourBlock === currentHour) {
-            $(this).attr("style", "background: blue;");
+            $(this).addClass("present");
         }
     })
 
