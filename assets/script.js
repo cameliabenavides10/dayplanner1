@@ -45,23 +45,21 @@ var intervalCurrentHour = function() {
  
 // // do another for loop and see if you can select the ids and append them to a blank variable that will equal timegroups
 
-var nine = $("#hour-9").text();
+var nine = $("#12PM").text();
 var ten = $("#hour-10").text();
 var eleven= $("#hour-11").text();
 var twelve= $("#hour-12").text(); 
 var one= $("#hour-13").text();
-var two= $("hour-14").text();
+var two= $("#hour-14").text();
 var three= $("#hour-15").text();
 var four=$("#hour-16").text();
 var five= $("#hour-17").text();
+var eight= $("#8PM").text();
 
 
+var theHours = [nine, ten, eleven, twelve, one, two, three, four, five, eight ];
 
-
-var theHours = [nine, ten, eleven, twelve, one, two, three, four, five];
-
-
-console.log(currentHour.format('h A') === "7 PM");
+console.log(theHours[9] === "8 PM");
 
 
  for (let i=0; i < theHours.length; i++){
@@ -70,7 +68,7 @@ console.log(currentHour.format('h A') === "7 PM");
  } else if(currentHour.format('h A') < theHours[i]){
   $("textarea").css("background-color", "#77dd77");
 } else { 
-        $("textarea").css("background-color", "#d3d3d3");
+ $("textarea").css("background-color", "#d3d3d3");
  }
  }
 
@@ -88,19 +86,15 @@ setInterval(intervalCurrentHour, 1000);
 
 
 
-
-
-
-
-
-
-
+// click event that will store text written into local storage
 $(".saveBtn").on("click", function (){
 var textPlanner = $(this).siblings("textarea").val();
 var timePlanner = $(this).parent().attr("id");
 localStorage.setItem(timePlanner, textPlanner);
 }) 
 
+
+// here we are getting the local storage key and value pairs and setting the value to it. 
 $("#hour-9").children("textarea").val(localStorage.getItem("hour-9"));
 $("#hour-10").children("textarea").val(localStorage.getItem("hour-10"));
 $("#hour-11").children("textarea").val(localStorage.getItem("hour-11"));
